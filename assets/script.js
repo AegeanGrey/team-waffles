@@ -1,9 +1,12 @@
 var pantryListParentDiv = document.querySelector("#food-list");
 var foodTextInputEl = document.querySelector("#food-text-input");
 var submitFoodBtn = document.querySelector("#submit-food-button");
+
+var recipePagePreview = document.querySelector('#recipe');
 var url =
   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=";
 var ingredients = [];
+
 
 //adding new food item via button
 //url is reset to make sure that he ending of the url doesn't repeat
@@ -23,6 +26,32 @@ function addFoodInput() {
 }
 
 submitFoodBtn.addEventListener("click", addFoodInput);
+
+
+//api call to gather ingredients based on food
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "9e31a75844mshb2d4a2fa7b4e020p1e0a93jsn06a74ba6a801",
+    "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  },
+};
+
+// if clicked, store recipe key of specic recipe into variable and then input in this following fetch request
+function getRecipeID() {
+  var recipeID = this[0].id;
+
+fetch(
+  `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeID}/information`,
+  options
+)
+  .then((response) => response.json())
+  .then((response) => console.log(response))
+  .catch((err) => console.error(err));
+}
+
+recipePagePreview.addEventListener('click', getRecipeID);
+
 
 //function to generate url for the API call
 
@@ -55,3 +84,4 @@ function apiCall() {
     .then((response) => console.log(response))
     .catch((err) => console.error(err));
 }
+
