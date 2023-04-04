@@ -1,6 +1,7 @@
 var pantryListParentDiv = document.querySelector("#food-list");
 var foodTextInputEl = document.querySelector("#food-text-input");
 var submitFoodBtn = document.querySelector("#submit-food-button");
+var recipePagePreview = document.querySelector('#recipe');
 
 //adding new food item via button
 function addFoodInput() {
@@ -24,10 +25,19 @@ const options = {
     "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
   },
 };
+
+// if clicked, store recipe key of specic recipe into variable and then input in this following fetch request
+function getRecipeID() {
+  var recipeID = this[0].id;
+
 fetch(
-  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=apples%2Cflour%2Csugar&number=5&ignorePantry=true&ranking=1",
+  `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeID}/information`,
   options
 )
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
+}
+
+recipePagePreview.addEventListener('click', getRecipeID);
+
