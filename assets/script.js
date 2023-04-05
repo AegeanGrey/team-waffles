@@ -1,12 +1,12 @@
 var pantryListParentDiv = document.querySelector("#food-list");
 var foodTextInputEl = document.querySelector("#food-text-input");
 var submitFoodBtn = document.querySelector("#submit-food-button");
+var recipeListParentDiv = document.querySelector("#recipe-display");
 
-var recipePagePreview = document.querySelector('#recipe');
+var recipePagePreview = document.querySelector("#recipe");
 var url =
   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=";
 var ingredients = [];
-
 
 //adding new food item via button
 //url is reset to make sure that he ending of the url doesn't repeat
@@ -27,7 +27,6 @@ function addFoodInput() {
 
 submitFoodBtn.addEventListener("click", addFoodInput);
 
-
 //api call to gather ingredients based on food
 const options = {
   method: "GET",
@@ -41,17 +40,17 @@ const options = {
 function getRecipeID() {
   var recipeID = this[0].id;
 
-fetch(
-  `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeID}/information`,
-  options
-)
-  .then((response) => response.json())
-  .then((response) => console.log(response))
-  .catch((err) => console.error(err));
+  fetch(
+    `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeID}/information`,
+    options
+  )
+    .then((response) => response.json())
+    .then((response) => console.log(response))
+    .catch((err) => console.error(err));
+  console.log(recipeID);
 }
 
-recipePagePreview.addEventListener('click', getRecipeID);
-
+recipePagePreview.addEventListener("click", getRecipeID);
 
 //function to generate url for the API call
 
@@ -81,7 +80,17 @@ function apiCall() {
   };
   fetch(url, options)
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then((response) => displayRecipies(response))
     .catch((err) => console.error(err));
 }
 
+function displayRecipies(response) {
+  console.log(response);
+  for (i = 0; i < response.length; i++) {
+    var recipeList = document.createElement("ul");
+    var recipeListEl = document.createElement("li");
+    recipeListEl.textContent = response[i].title;
+    recipeListParentDiv.appendChild(recipeList);
+    recipeList.appendChild(recipeListEl);
+  }
+}
