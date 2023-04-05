@@ -23,6 +23,7 @@ function addFoodInput() {
   console.log(foodInput);
   generateURL();
   apiCall();
+  drinkApiCall();
 }
 
 submitFoodBtn.addEventListener("click", addFoodInput);
@@ -93,4 +94,20 @@ function displayRecipies(response) {
     recipeListParentDiv.appendChild(recipeList);
     recipeList.appendChild(recipeListEl);
   }
+}
+
+//drink API call that returns a random assortment of drinks, they will display all sorts of information on the drink, might need to make a separate display for this.
+function drinkApiCall() {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "9e31a75844mshb2d4a2fa7b4e020p1e0a93jsn06a74ba6a801",
+      "X-RapidAPI-Host": "drinks-digital1.p.rapidapi.com",
+    },
+  };
+
+  fetch("https://drinks-digital1.p.rapidapi.com/v1/cocktails?limit=6", options)
+    .then((response) => response.json())
+    .then((response) => console.log(response))
+    .catch((err) => console.error(err));
 }
