@@ -92,11 +92,15 @@ function displayRecipies(response) {
   refreshRecipies();
   console.log(response);
   for (i = 0; i < response.length; i++) {
-    var recipeList = document.createElement("ul");
-    var recipeListEl = document.createElement("li");
-    recipeListEl.textContent = response[i].title;
-    recipeListParentDiv.appendChild(recipeList);
-    recipeList.appendChild(recipeListEl);
+    var recipePreview = document.createElement("div");
+    var recipeTitleEl = document.createElement("h3");
+    var recipeImageEl = document.createElement("img");
+    recipeImageEl.src = `${response[i].image}`;
+    recipeTitleEl.textContent = response[i].title;
+    recipePreview.prepend(recipeImageEl);
+    recipeListParentDiv.appendChild(recipePreview);
+    recipePreview.appendChild(recipeTitleEl);
+    console.log(recipeImageEl.src);
   }
 }
 
