@@ -122,6 +122,7 @@ async function buildRecipeImage (currentRecipe) {
 
 function buildViewRecipeButton(recipeLink) {
   var viewRecipeBtn = document.createElement("a");
+  viewRecipeBtn.classList.add("view-recipe-button")
   viewRecipeBtn.href = recipeLink;
   viewRecipeBtn.target = "_blank";
   viewRecipeBtn.textContent = "View";
