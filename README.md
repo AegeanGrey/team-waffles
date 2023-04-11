@@ -22,7 +22,7 @@ If you are utilizing the live server option through VS code, I would recommend t
 
 After loading up the website you will be loaded up to the main page of the application
 Link to deployed Application:https://aegeangrey.github.io/team-waffles/
-![alt text](https://https://github.com/AegeanGrey/team-waffles/blob/main/assets/pictures/Title.PNG)
+![alt text](https://github.com/AegeanGrey/team-waffles/blob/main/assets/pictures/Title.png)
 
 If you enter in the food into the text box and click add food.
 Food will be added to your food list.
