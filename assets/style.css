@@ -11,7 +11,7 @@ h3 {
     right: 5%;
 }
 
-button {
+.save-recipe-button {
     margin: 1%;
     background-color: white;
     padding-left: 1rem;
@@ -19,13 +19,14 @@ button {
     border-radius: 25px;
 }
 
-button:hover {
+.save-recipe-button:hover {
     background-color: pink;
     color:white;
 }
 
 input {
     padding-left: 3px;
+    margin:1rem;
 }
 
 li {
@@ -54,3 +55,17 @@ ul {
     background-color: black;
     color:white;
 }
+
+.remove-recipe-button {
+    margin: 1%;
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 25px;
+}
+
+.remove-recipe-button:hover {
+    background-color: red;
+    color:white;
+}
+
