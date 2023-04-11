@@ -1,0 +1,56 @@
+h3 {
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+#view-saved-recipes-button {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+button {
+    margin: 1%;
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 25px;
+}
+
+button:hover {
+    background-color: pink;
+    color:white;
+}
+
+input {
+    padding-left: 3px;
+}
+
+li {
+    background-color: white;
+    width: 150%;
+    border-radius: 25px;
+    text-align: center;
+    margin: 4px;
+}
+ul {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+}
+
+.view-recipe-button {
+    margin: 1%;
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 25px;
+    margin-right: 50px;
+}
+
+.view-recipe-button:hover {
+    background-color: black;
+    color:white;
+}
