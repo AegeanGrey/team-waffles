@@ -131,6 +131,7 @@ function buildViewRecipeButton(recipeLink) {
 
 function buildSaveRecipeButton(currentRecipe) {
   var saveRecipeBtn = document.createElement("button");
+  saveRecipeBtn.classList.add("save-recipe-button")
   saveRecipeBtn.textContent = "Save";
   saveRecipeBtn.addEventListener("click", () => saveRecipe(currentRecipe));
   return saveRecipeBtn
@@ -145,6 +146,7 @@ function removeRecipe(recipe) {
 
 function buildRemoveRecipeButton(currentRecipe) {
   var removeRecipeBtn = document.createElement("button");
+  removeRecipeBtn.classList.add("remove-recipe-button")
   removeRecipeBtn.textContent = "Remove";
   removeRecipeBtn.addEventListener("click", () => removeRecipe(currentRecipe));
   return removeRecipeBtn
